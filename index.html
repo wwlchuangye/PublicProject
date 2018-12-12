@@ -1,0 +1,285 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            html,body{width: 100%; height: 100%; margin:0; padding: 0;}
+            hr{
+                margin: 30px 0;
+            }
+            .div_module{
+                width:60%;
+                margin: 20px auto;
+            }
+            .div_module input,.div_module select,.div_module textarea{
+                width: 100%;
+            }
+            .div_module_c{
+                margin-bottom: 30px;
+            }
+            .div_module_c h2{
+                text-align: center;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #ddd;
+            }
+            .sel_goods{
+                padding: 3px 0;
+            }         
+            .div_getOperations table td{
+                border-bottom: 1px solid #eee;
+            }  
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+
+            th,td{
+                text-align: left;
+            }
+
+            .body{
+                width: 100%;
+            }
+
+            .container{
+                height: 100%;
+                display: flex;
+                /* overflow: hidden; */
+            }
+            .left_nav{
+                padding: 30px 30px 0 10px;   
+                height: 100%;
+                overflow: auto;            
+            }
+            .left_nav ul{
+                list-style: decimal-leading-zero;
+            }
+            
+            .right_main_content{
+                flex: 1;
+                border-left:1px dotted green;
+                display: flex;
+                flex-direction: column;
+            }
+            .right_main_content .top{
+                border-bottom:1px dotted green;
+            }
+            .container .body{
+                flex: 1;
+                overflow:auto;
+            }
+
+            .top .div_module_c{
+                margin-bottom: 0;
+            }
+
+            .h_msg{
+                margin:0;
+                color:red;
+                padding-left: 20px;
+            }
+            .h_msg::before{
+                content: "消息："
+            }
+            .div_unlock{
+                padding-bottom: 0;
+            }
+
+            .left_nav .p_account{margin-bottom: 20px; padding-left: 10px;}
+
+            .listCard .row{
+                display: flex;
+                margin-bottom:6px;
+            }
+            .listCard .row .field{
+                width: 160px;
+            }
+
+            .row_txid h4{
+                margin:8px 0;
+            }
+
+            .div_queryBlockTXID .transactions{
+                margin-top: 16px;
+            }
+
+            .div_queryBlockTXID .row_txid .row_op{
+                margin-bottom: 8px;
+            }
+
+            .div_getWitnessesForExplorer .activeNodeClass>td {
+                background: rgba(80, 210, 194, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="left_nav">
+            <p class="p_account">Engine<span class="current_account"></span></p>
+            <ul>
+                <li>场景管理
+                    <ul class="class_1">
+
+                    </ul>
+                </li>
+                <li>Windows管理
+                    <ul class="class_2">
+
+                        </ul>
+                </li>
+                <li>Event管理
+                    <ul class="class_3">
+
+                    </ul>
+                </li>
+                <li>游戏管理
+                    <ul class="class_4">
+
+                    </ul>
+                </li>
+                <li>游戏对象
+                    <ul class="class_5">
+
+                    </ul>
+                </li>
+                <li>其他
+                    <ul class="class_6">
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="right_main_content">
+                <div class="top">
+                    <h2 class="h_msg"></h2>
+                    <div class="div_module_c" pclass="class_1">
+                        <h2 style="border-bottom:0; padding-bottom:0; margin:6px 0;">详情说明</h2>
+                        <div class="div_unlock div_module">
+                            <p>注册用户</p>
+                           <div class="div_signup div_module">
+                                用户名<input type="text" id="signup_username"  value="test_1"><br><br>
+                                密码<input type="text" id="signup_pwd"  value="12345678"><br><br><br>
+                                <input type="button" id="btn_signup" value="注册"  />
+                            </div>
+
+                            <p>登录后查看</p>
+                            <div class="div_signup div_module">
+                                用户名<input type="text" id="login_username"  value=""><br><br>
+                                密码<input type="text" id="login_pwd"  value=""><br><br><br>
+                                <input type="button" id="btn_login" value="登录"  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="body">
+                        <div class="div_module_c" id="div_signup" pclass="class_1"  >
+                            <h2>敬请期待</h2>
+                           
+                        </div>
+
+                        <div class="div_module_c" id="div_transferAsset" pclass="class_2"  >
+                           <h2>敬请期待</h2>
+                        
+                        </div>
+                         <div class="div_module_c" id="div_transferAsset" pclass="class_3"  >
+                           <h2>敬请期待</h2>
+                        
+                        </div>
+                         <div class="div_module_c" id="div_transferAsset" pclass="class_4"  >
+                           <h2>敬请期待</h2>
+                        
+                        </div>
+                         <div class="div_module_c" id="div_transferAsset" pclass="class_5"  >
+                           <h2>敬请期待</h2>
+                        
+                        </div>
+                        <div class="div_module_c" id="div_transferAsset" pclass="class_6"  >
+                           <h2>其它</h2>
+                        
+
+                </div>
+        </div>
+       
+    </div>
+        
+        <script>
+                function loadLeftNavs(){
+                    var el_modules=document.querySelectorAll(".right_main_content .body .div_module_c");
+                    var nav_htmls="";
+                    var m_name="";
+                    var el;
+                    var p_class="";
+                    for(var i=0;i<el_modules.length;i++){
+                        el=el_modules[i];
+                        m_name=el.querySelector("h2").innerText;
+                        p_class=el.getAttribute("pclass");
+                        if(p_class){
+                           var li=document.createElement("LI"); 
+                           li.innerHTML='<a href="#'+el.id+'">'+m_name+'</a>';
+                           gel("."+p_class).appendChild(li); 
+                        }
+                     
+                    }
+                }
+
+                loadLeftNavs();
+
+               
+
+                function gel(selector){
+                    return document.querySelector(selector)
+                }
+
+
+
+                var _user={
+                    init:function(){      
+                        gel("#btn_signup").onclick=_user.createAccountWithPassword;
+                        gel("#btn_login").onclick=_user.passwordLogin;
+                        
+                    },
+                    
+                    createAccountWithPassword:function(){
+                        
+                        var d = {
+                            username:gel("#signup_username").value,
+                            password:gel("#signup_pwd").value
+                        }
+                        if(d.username.length > 0 && d.password.length > 0)
+                        {
+                            alert("恭喜 小主 注册成功啦！\n" +  JSON.stringify(d));
+                        }else{
+                            alert("加油本次注册失败啦 ^o^！\n" + "请检查!");    
+                        }
+                        
+                    },
+
+                    passwordLogin: function(){
+
+                        var d = {
+                            username:gel("#login_username").value,
+                            password:gel("#login_pwd").value
+                        }
+                        if(d.username.length > 0 && d.password.length > 0)
+                        {
+                            alert("亲 小主！   您还真登录呀 ^_^！\n" + JSON.stringify(d));    
+                        }else{
+                            alert("加油本次登录失败啦 ^o^！\n" + "请检查!");    
+                        }
+                    }
+                    
+                }
+
+                _user.init();
+                
+     
+        </script>
+    </body>
+</html>
